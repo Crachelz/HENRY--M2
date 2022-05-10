@@ -41,7 +41,7 @@ function ToDo(description){
 }
 
 ToDo.prototype.completeToDo= function() {
-    this.complete = true;
+    this.complete = !this.complete;
  }
 
 // Agregar dos parámetros a la función 'buildToDo':
@@ -62,15 +62,15 @@ ToDo.prototype.completeToDo= function() {
 //    8) Devolver la variable toDoShell
 
 
-function buildToDo(ToDo, index) {
+function buildToDo(todo, index) {
   // Tu código acá:
   var toDoShell  = document.createElement('div');
   toDoShell.className  = 'toDoShell';
   var toDoText = document.createElement('span');
-  toDoText.innerHTML =ToDo.description;
+  toDoText.innerHTML =todo.description;
   toDoText.setAttribute('id', index);  //toDoText.id = index -> solucion de MArtina
 
-  if (ToDo.complete)  toDoText.className  = 'completeText';
+  if (todo.complete)  toDoText.className  = 'completeText';
   
   toDoShell.appendChild(toDoText);
   toDoText.addEventListener('click', completeToDo)
@@ -111,7 +111,7 @@ function displayToDos() {
   toDoContainer.innerHTML = '';
   var resBuildTodos = buildToDos(toDoItems);
   
-  resBuildTodos.forEach((element)=>toDoContainer = element + toDoContainer) // ->toDoContainer.appendChild(element)
+  resBuildTodos.forEach((element)=>toDoContainer.appendChild(element)) // ->toDoContainer.appendChild(element)
 
 }
 
@@ -171,7 +171,7 @@ function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
    const index = event.target.id;
   // Tu código acá:
-  toDoItems[index].completeToDo // -> Este me falto
+  toDoItems[index].completeToDo() // -> Este me falto
   displayToDos()
 }
 
