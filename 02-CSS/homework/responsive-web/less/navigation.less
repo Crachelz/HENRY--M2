@@ -1,1 +1,26 @@
 // Código de Nav acá
+.nav{
+    .flex(column, center, center);
+    padding: 15px;
+    background-color: @nav-bg;
+
+    ul{
+        .flex(row, space-around, center);
+        padding-top: 15px;
+        text-decoration: none;
+        width:40%;
+
+        a{
+            font-size:20px;
+            color: @nav-font;
+        }
+
+    @media @phone{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        font-size:  10px;
+        }
+    }
+}
+

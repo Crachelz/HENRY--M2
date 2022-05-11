@@ -1,1 +1,35 @@
 // Mixins acá
+.flex(@direction: column, @justify, @align){ // -> los mixins se definen con un punto delante
+    display: flex;
+    flex-direction: @direction;
+    justify-content:@justify;
+    align-items: @align;
+
+}
+
+.roundImg(@radius: 20px){
+    border-radius: @radius;
+}
+
+.btn(@color, @background, @border){
+    font-size: 20px;
+    font-weight:300;
+
+    color: @color;
+    background-color: @background;
+    border-radius: @border;
+    border: 1px solid black;
+    display: inline-block;
+
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover{ // normalmente haria btn:hover, en less le agrego el ampersen(&)
+        background-color: @color;
+        color: @background
+    }
+}
+
+.imgphone(){
+    width: 100%;
+}
